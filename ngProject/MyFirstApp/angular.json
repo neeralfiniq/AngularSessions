@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "MyFirstApp": {
+    "DemoApp": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/MyFirstApp",
+            "outputPath": "dist/DemoApp",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -23,10 +23,19 @@
               "src/favicon.ico",
               "src/assets"
             ],
-            "styles": [
-              "src/styles.css"
-            ],
-            "scripts": []
+           
+  "styles": [
+    "node_modules/angular-parallax/css/materialize.min.css",
+    "node_modules/angular-parallax/css/style.css",
+    "src/styles.css"
+  ],
+  "scripts": [
+    "node_modules/angular-parallax/js/jquery-2.1.1.min.js",
+    "node_modules/angular-parallax/js/materialize.min.js",
+    "node_modules/angular-parallax/js/init.js"
+  ]
+
+
           },
           "configurations": {
             "production": {
@@ -63,18 +72,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "MyFirstApp:build"
+            "browserTarget": "DemoApp:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "MyFirstApp:build:production"
+              "browserTarget": "DemoApp:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "MyFirstApp:build"
+            "browserTarget": "DemoApp:build"
           }
         },
         "test": {
@@ -88,10 +97,19 @@
               "src/favicon.ico",
               "src/assets"
             ],
-            "styles": [
-              "src/styles.css"
-            ],
-            "scripts": []
+           
+  "styles": [
+    "node_modules/angular-parallax/css/materialize.min.css",
+    "node_modules/angular-parallax/css/style.css",
+    "src/styles.css"
+  ],
+  "scripts": [
+    "node_modules/angular-parallax/js/jquery-2.1.1.min.js",
+    "node_modules/angular-parallax/js/materialize.min.js",
+    "node_modules/angular-parallax/js/init.js"
+  ]
+
+
           }
         },
         "lint": {
@@ -111,15 +129,15 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "MyFirstApp:serve"
+            "devServerTarget": "DemoApp:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "MyFirstApp:serve:production"
+              "devServerTarget": "DemoApp:serve:production"
             }
           }
         }
       }
     }},
-  "defaultProject": "MyFirstApp"
+  "defaultProject": "DemoApp"
 }

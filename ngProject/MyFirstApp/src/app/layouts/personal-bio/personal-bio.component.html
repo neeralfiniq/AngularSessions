@@ -1,0 +1,19 @@
+<div class="container">
+    <div class="section">
+  <div class="row">
+    <ul><li *ngFor="let emps of employeeList" class="myLi">
+      <div class="col s12 m6">
+      <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src={{emps.imgpath}} alt="Card image cap" height="250px">
+        <div class="card-body">
+          <h5 class="card-title">{{emps.name}}</h5>
+          <p class="card-text">{{emps.id}}</p>
+          <p class="card-text">{{emps.designation}}</p>
+          <input type="submit" onclick="alert('Get Lost!!');" class="btn btn-primary" value="View Bio" />
+        </div>
+        </div>
+      </div>
+      </li></ul>
+    </div>
+    </div>
+  </div>

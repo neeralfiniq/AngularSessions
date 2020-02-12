@@ -1,0 +1,11 @@
+.myLi{
+    display: inline-block !important;
+    padding:5px !important;
+    margin:5px !important;
+    box-shadow: 2px 2px 5px orange !important;
+    border-radius: 3px !important;
+}
+
+.card{
+    box-shadow: none;
+}
