@@ -9,7 +9,7 @@ import { Component, OnInit } from "@angular/core";
         color: green;
       }
       .notAvailable {
-        color: green;
+        color: red;
       }
     `
   ]
