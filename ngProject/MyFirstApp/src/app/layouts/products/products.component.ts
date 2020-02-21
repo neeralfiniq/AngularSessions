@@ -1,4 +1,9 @@
-import { Component, OnInit } from "@angular/core";
+import { BOOKDATA } from "./../../products/model/book-data";
+import { MOBDATA } from "../../products/model/mob-info-data";
+import { Component, OnInit, SimpleChanges } from "@angular/core";
+import { MobileInfo } from "src/app/products/model/mob-info";
+import { BookInfo } from "src/app/products/model/book";
+import { ActivatedRoute } from "@angular/router";
 
 @Component({
   selector: "app-products",
@@ -6,58 +11,65 @@ import { Component, OnInit } from "@angular/core";
   styles: []
 })
 export class ProductsComponent implements OnInit {
-  constructor() {}
+  public product;
+  public finalInfo: any[];
 
-  product = "BOOK";
+  mobileInfo: MobileInfo[] = MOBDATA;
 
-  mobileInfo = [
-    {
-      name: "Mobile",
-      price: "1000",
-      stock: 111,
-      country: "india",
-      available: "green"
-    },
-    {
-      name: "Mobile 1",
-      price: "10000",
-      stock: 0,
-      country: "pakistan",
-      class: "red"
-    },
+  bookInfo: BookInfo[] = BOOKDATA;
 
-    {
-      name: "Mobile 2",
-      price: "10000",
-      stock: 50,
-      country: "UK",
-      class: "green"
+  noData = [];
+
+  constructor(route: ActivatedRoute) {
+    route.params.subscribe(val => {
+      console.log("constructor-products");
+      const parameters = new URLSearchParams(window.location.search);
+      switch (parameters.get("Product")) {
+        case "MOBILE":
+          this.product = "MOBILE";
+          console.log("this.product " + this.product);
+          break;
+
+        case "BOOK":
+          this.product = "BOOK";
+          console.log("this.product " + this.product);
+        default:
+          break;
+      }
+    });
+  }
+
+  ngOnInit() {
+    console.log("ngOnInit-products");
+    const parameters = new URLSearchParams(window.location.search);
+    switch (parameters.get("Product")) {
+      case "MOBILE":
+        this.product = "MOBILE";
+        console.log("this.product " + this.product);
+        break;
+
+      case "BOOK":
+        this.product = "BOOK";
+        console.log("this.product " + this.product);
+      default:
+        break;
     }
-  ];
+  }
 
-  bookInfo = [
-    {
-      name: "Book",
-      price: "1000",
-      stock: 111,
-      country: "india",
-      available: "green"
-    },
-    {
-      name: "Book 1",
-      price: "10000",
-      stock: 0,
-      country: "pakistan",
-      class: "red"
-    },
+  ngOnChanges(changes: SimpleChanges): void {
+    console.log("ngOnChanges-products");
+    const parameters = new URLSearchParams(window.location.search);
+    switch (parameters.get("Product")) {
+      case "MOBILE":
+        this.product = "MOBILE";
+        console.log("this.product " + this.product);
+        break;
 
-    {
-      name: "Book 2",
-      price: "10000",
-      stock: 50,
-      country: "UK",
-      class: "green"
+      case "BOOK":
+        this.product = "BOOK";
+        console.log("this.product " + this.product);
+      default:
+        break;
     }
-  ];
-  ngOnInit() {}
+  }
 }

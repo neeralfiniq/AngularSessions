@@ -1,5 +1,7 @@
+import { RouterModule, Route, Routes } from "@angular/router";
 import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
+import { FormsModule } from "@angular/forms";
 
 import { AppComponent } from "./app.component";
 import { NavComponent } from "./layouts/nav/nav.component";
@@ -10,7 +12,16 @@ import { BannerTwoComponent } from "./layouts/banner-two/banner-two.component";
 import { BannerThreeComponent } from "./layouts/banner-three/banner-three.component";
 import { ContactUsComponent } from "./layouts/contact-us/contact-us.component";
 import { PersonalBioComponent } from "./layouts/personal-bio/personal-bio.component";
-import { MobPartsComponent } from "./products/mob-parts/mob-parts.component";
+import { MobPartsComponent } from "./products/product-display/product-display.component";
+
+import { SqrtPipe } from "./pipes/sqrt.pipe";
+import { FirstDirective } from "./directives/first.directive";
+import { FirstCapitalPipe } from "./pipes/first-capital.pipe";
+import { ReturnKeyValuePipe } from "./pipes/return-key-value.pipe";
+import { HostDirective } from "./directives/host.directive";
+import { AppRoutingModule } from "./app-routing.module";
+
+const ROUTES: Routes = [{ path: "Products", component: ProductsComponent }];
 
 @NgModule({
   declarations: [
@@ -23,9 +34,14 @@ import { MobPartsComponent } from "./products/mob-parts/mob-parts.component";
     BannerThreeComponent,
     ContactUsComponent,
     PersonalBioComponent,
-    MobPartsComponent
+    MobPartsComponent,
+    SqrtPipe,
+    FirstDirective,
+    FirstCapitalPipe,
+    ReturnKeyValuePipe,
+    HostDirective
   ],
-  imports: [BrowserModule],
+  imports: [BrowserModule, FormsModule, AppRoutingModule],
   providers: [],
   bootstrap: [AppComponent]
 })

@@ -1,1 +1,9 @@
-<app-mob-parts [input]="mobileInfo"></app-mob-parts>
+<h5>Product Search</h5>
+<input style="width:250px" [(ngModel)]="product" id="txt" />
+
+<br /><br />
+<app-product-display
+  [input]="
+    product === 'BOOK' ? bookInfo : product === 'MOBILE' ? mobileInfo : nodata
+  "
+></app-product-display>

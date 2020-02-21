@@ -1,0 +1,81 @@
+<ng-container
+  *ngIf="input; then dataAvailable; else dataUnavailable"
+></ng-container>
+
+<ng-template #dataAvailable>
+  <div class="container">
+    <div class="section">
+      <div class="row">
+        <div *ngFor="let productInfo of input">
+          <div class="col s12 m4 card ">
+            <div class="icon-block">
+              <h2 class="center brown-text">
+                <img
+                  appHost
+                  width="320"
+                  src="{{
+                    productInfo.type === 'MOBILE'
+                      ? bookImgURL
+                      : productInfo.type === 'BOOK'
+                      ? mobileImgURL
+                      : ''
+                  }}"
+                />
+              </h2>
+              <h5 class="center">Name :{{ productInfo.name }}</h5>
+
+              <p class="light">price :{{ productInfo.price }}</p>
+              <p class="light">sqrt:{{ 144 | sqrt }}</p>
+
+              <ng-container
+                *ngIf="productInfo.stock > 0; then available; else notAvailable"
+              >
+              </ng-container>
+
+              <ng-template #available>
+                <p
+                  class="light"
+                  [ngClass]="{
+                    available: productInfo.stock > 0,
+                    notAvailable: productInfo.stock === 0
+                  }"
+                >
+                  Availability : {{ productInfo.stock }}
+                </p>
+              </ng-template>
+
+              <ng-template #notAvailable>
+                <p
+                  class="light"
+                  [ngClass]="{
+                    available: productInfo.stock > 0,
+                    notAvailable: productInfo.stock === 0
+                  }"
+                >
+                  Not Available
+                </p>
+              </ng-template>
+
+              <span [ngSwitch]="productInfo.country">
+                Country:
+
+                <span *ngSwitchCase="'india'">
+                  India
+                </span>
+                <span *ngSwitchCase="'pakistan'">
+                  pakistan
+                </span>
+                <span *ngSwitchDefault>
+                  Default
+                </span>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-template>
+<ng-template #dataUnavailable>
+  <h1>No data found</h1>
+</ng-template>
